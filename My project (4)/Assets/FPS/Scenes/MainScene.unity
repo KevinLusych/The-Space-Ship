@@ -17186,6 +17186,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 298744117520805562, guid: 761cdc9e4e883334cbdcea062d0befa7,
         type: 3}
+      propertyPath: WeaponCamera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 298744117520805562, guid: 761cdc9e4e883334cbdcea062d0befa7,
+        type: 3}
       propertyPath: StartingWeapons.Array.data[0]
       value: 
       objectReference: {fileID: 8323776800172828795, guid: 5a7796957825fe14eb8ab2e89aa94a77,
