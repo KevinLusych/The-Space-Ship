@@ -447,10 +447,27 @@ namespace Unity.FPS.Game
             for (int i = 0; i < bulletsPerShotFinal; i++)
             {
                 Vector3 shotDirection = GetShotDirectionWithinSpread(WeaponMuzzle);
-                ProjectileBase newProjectile = Instantiate(ProjectilePrefab, WeaponMuzzle.position,
-                    Quaternion.LookRotation(shotDirection));
-                newProjectile.Shoot(this);
+
+                // First projectile (original muzzle)
+                ProjectileBase p1 = Instantiate(
+                    ProjectilePrefab,
+                    WeaponMuzzle.position,
+                    Quaternion.LookRotation(shotDirection)
+                );
+                p1.Shoot(this);
+
+                // Second projectile (offset to the left)
+                float muzzleOffset = 0.55f; // tweak this value
+                Vector3 leftMuzzlePos = WeaponMuzzle.position - WeaponMuzzle.right * muzzleOffset;
+
+                ProjectileBase p2 = Instantiate(
+                    ProjectilePrefab,
+                    leftMuzzlePos,
+                    Quaternion.LookRotation(shotDirection)
+                );
+                p2.Shoot(this);
             }
+
 
             // muzzle flash
             if (MuzzleFlashPrefab != null)
